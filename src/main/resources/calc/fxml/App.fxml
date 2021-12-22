@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<StackPane id="root-pane" fx:id="rootPane" styleClass="pane" stylesheets="@../css/App.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.controller.AppController">
+   <children>
+      <ImageView fx:id="background" fitHeight="150.0" fitWidth="200.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <effect>
+            <BoxBlur height="10.0" iterations="3" width="10.0" />
+         </effect>
+      </ImageView>
+      <Pane id="shadow-pane" fx:id="shadowPane" prefHeight="521.0" prefWidth="343.0" styleClass="pane">
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="30.0" radius="14.5" width="30.0" />
+         </effect>
+      </Pane>
+      <Pane id="content-pane" fx:id="contentPane" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="501.0" minWidth="323.0" onKeyPressed="#contentPaneOnKeyPressed" prefHeight="501.0" prefWidth="323.0" styleClass="pane">
+         <children>
+            <BorderPane id="window-pane" fx:id="windowTab" maxWidth="1.7976931348623157E308" onMouseDragged="#windowOnMouseDragged" onMousePressed="#windowOnMousePressed" prefHeight="30.0" prefWidth="323.0" styleClass="pane">
+               <left>
+                  <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" text="經典時尚小算盤" textFill="WHITE" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets left="12.0" />
+                     </BorderPane.margin>
+                  </Label>
+               </left>
+               <right>
+                  <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER">
+                     <children>
+                        <Button id="minimize" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="46.0" mnemonicParsing="false" onAction="#minimize" prefWidth="46.0" styleClass="window-btn" text="—" textAlignment="JUSTIFY" textFill="WHITE">
+                           <font>
+                              <Font name="Microsoft New Tai Lue" size="12.0" />
+                           </font>
+                        </Button>
+                        <Button id="close" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="46.0" mnemonicParsing="false" onAction="#close" prefWidth="46.0" styleClass="window-btn" text="✕" textAlignment="JUSTIFY" textFill="WHITE">
+                           <font>
+                              <Font name="Microsoft New Tai Lue" size="12.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </right>
+            </BorderPane>
+            <GridPane id="screen-pane" fx:id="ScreenPane" alignment="CENTER" hgap="3.0" layoutY="31.0" maxHeight="128.0" prefHeight="128.0" prefWidth="323.0" styleClass="pane" vgap="3.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="94.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label id="label" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="screen-field" text="電競標準" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft JhengHei Bold" size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="30.0" right="30.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label id="sub" fx:id="subScreenField" alignment="CENTER_RIGHT" contentDisplay="RIGHT" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" styleClass="screen-field" textAlignment="RIGHT" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="13.5" />
+                     </font>
+                  </Label>
+                  <TextField id="main" fx:id="mainScreenField" alignment="CENTER_RIGHT" editable="false" focusTraversable="false" maxHeight="1.7976931348623157E308" onMouseExited="#mainScreenOnMouseExited" styleClass="screen-field" text="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Microsoft JhengHei Bold" size="42.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <padding>
+                        <Insets left="7.0" right="7.0" />
+                     </padding>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+            <GridPane id="input-pane" fx:id="InputPane" hgap="3.0" layoutY="191.0" prefHeight="310.0" prefWidth="323.0" styleClass="pane" vgap="3.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" mouseTransparent="true" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="20.0" />
+                     </font>
+                     <effect>
+                        <GaussianBlur radius="20.0" />
+                     </effect>
+                     <styleClass>
+                        <String fx:value="num-btn" />
+                        <String fx:value="unimpl-btn" />
+                     </styleClass>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" mouseTransparent="true" textAlignment="JUSTIFY" textFill="WHITE" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="20.0" />
+                     </font>
+                     <effect>
+                        <GaussianBlur radius="20.0" />
+                     </effect>
+                     <styleClass>
+                        <String fx:value="num-btn" />
+                        <String fx:value="unimpl-btn" />
+                     </styleClass>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" mouseTransparent="true" textAlignment="JUSTIFY" textFill="WHITE">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="20.0" />
+                     </font>
+                     <effect>
+                        <GaussianBlur radius="20.0" />
+                     </effect>
+                     <styleClass>
+                        <String fx:value="op-btn" />
+                        <String fx:value="unimpl-btn" />
+                     </styleClass>
+                  </Button>
+                  <Button id="num1" fx:id="btn1" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="1" textAlignment="JUSTIFY" textFill="WHITE" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="num2" fx:id="btn2" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="2" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="num3" fx:id="btn3" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="3" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="num4" fx:id="btn4" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="4" textAlignment="JUSTIFY" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="num5" fx:id="btn5" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="5" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="num6" fx:id="btn6" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="6" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="num7" fx:id="btn7" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="7" textAlignment="JUSTIFY" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="num8" fx:id="btn8" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="8" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="num9" fx:id="btn9" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="9" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="num0" fx:id="btn0" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#inputNumber" styleClass="num-btn" text="0" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Microsoft New Tai Lue Bold" size="20.0" />
+                     </font>
+                     <effect>
+                        <InnerShadow>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </InnerShadow>
+                     </effect>
+                  </Button>
+                  <Button id="divide" fx:id="btnDiv" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#divide" styleClass="op-btn" text="÷" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="3">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="26.0" />
+                     </font>
+                  </Button>
+                  <Button id="multiply" fx:id="btnMul" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#multiply" styleClass="op-btn" text="×" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="26.0" />
+                     </font>
+                  </Button>
+                  <Button id="subtract" fx:id="btnSub" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#subtract" styleClass="op-btn" text="－" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button id="add" fx:id="btnAdd" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#add" styleClass="op-btn" text="+" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="26.0" />
+                     </font>
+                  </Button>
+                  <Button id="equal" fx:id="btnEq" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#equal" styleClass="op-btn" text="＝" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button id="ce" fx:id="btnCE" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearMainResult" styleClass="op-btn" text="CE" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button id="c" fx:id="btnC" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#clearAllResult" styleClass="op-btn" text="C" textAlignment="JUSTIFY" textFill="WHITE" GridPane.columnIndex="2">
+                     <font>
+                        <Font name="Microsoft New Tai Lue" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

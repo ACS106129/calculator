@@ -1,0 +1,110 @@
+#root-pane {
+    -fx-background-color: #ffffff80;
+    /* Cut the shadow pane outside insets */
+    -fx-background-insets: 10;
+}
+
+#shadow-pane {
+    -fx-background-color: white;
+    /* Make the shadowdrop effect fit to content pane */
+    -fx-background-insets: 10;
+}
+
+#content-pane {
+    -fx-background-color: #262626;
+    -fx-border-color: #404040;
+    -fx-border-width: 2px;
+}
+
+#content-pane:hover {
+    -fx-border-width: 1px;
+}
+
+#content-pane:focused {
+    -fx-background-color: #262626de;
+    -fx-border-color: transparent;
+}
+
+.screen-field {
+    -fx-background-color: null;
+}
+
+.screen-field#main,
+.screen-field#label {
+    -fx-text-fill: white;
+}
+
+.screen-field#sub {
+    -fx-text-fill: #a8a8a8;
+}
+
+.screen-field#main:focused {
+    -fx-border-color: white;
+}
+
+.unimpl-btn {
+    -fx-background-insets: 10;
+}
+
+.num-btn,
+.op-btn,
+.window-btn {
+    -fx-background-radius: 0;
+    -fx-text-fill: white;
+}
+
+.op-btn:hover,
+.num-btn:hover {
+    -fx-background-color: #474747;
+}
+
+.op-btn:pressed,
+.num-btn:pressed {
+    -fx-background-color: #666666;
+    -fx-border-color: #ffffff3d;
+}
+
+.num-btn {
+    -fx-background-color: #111111;
+}
+
+.op-btn {
+    -fx-background-color: #1c1c1c;
+}
+
+.op-btn#equal {
+    -fx-background-color: #13633c;
+}
+
+.op-btn:hover {
+    -fx-border-color: #ffffff3d;
+}
+
+.op-btn#equal:hover {
+    -fx-background-color: #0fb364;
+}
+
+.op-btn#equal:pressed {
+    -fx-background-color: #00c264;
+}
+
+.window-btn {
+    -fx-background-color: transparent;
+}
+
+.window-btn#minimize:hover {
+    -fx-background-color: #383838;
+}
+
+.window-btn#minimize:pressed {
+    -fx-background-color: #575757;
+}
+
+.window-btn#close:hover {
+    -fx-background-color: red;
+}
+
+.window-btn#close:pressed {
+    -fx-background-color: #f1707a;
+    -fx-text-fill: black;
+}
