@@ -2,7 +2,7 @@ package calc;
 
 public class Launcher {
     /**
-     * Need startup the main function to proxy {@code Launcher}
+     * Need startup the main function by proxy {@code Launcher}
      * <p>
      * Reference:<p>
      * {@link https://stackoverflow.com/a/52654791}

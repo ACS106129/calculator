@@ -48,9 +48,8 @@ public class Calculator {
             else {
                 final Pair<BigDecimal, Operator> lastExpr = expressions.get(expressions.size() - 1).getValue();
                 if (expressions.size() < MAX_EXPRESSION_SIZES
-                        && (lastExpr.getValue() == Operator.Equal || (isOperandPromptted && op != Operator.Equal))) {
+                        && (lastExpr.getValue() == Operator.Equal || (isOperandPromptted && op != Operator.Equal)))
                     expressions.set(expressions.size() - 1, new Pair<>(ch, new Pair<>(target, op)));
-                }
                 // expression completed
                 else if (lastExpr.getValue() == Operator.Equal && expressions.size() >= 2) {
                     // continue origin expression
@@ -109,7 +108,7 @@ public class Calculator {
     public String getInputResult() {
         if (inputString.equals(DIVIDED_BY_ZERO_ERROR) || inputString.equals(UNDEFINED_ERROR))
             return inputString;
-        return getOutput(new BigDecimal(inputString), true);
+        return getOutput(new BigDecimal(inputString));
     }
 
     public String getExpressionResult() {
@@ -117,7 +116,7 @@ public class Calculator {
             return "";
         final StringBuffer sb = new StringBuffer();
         expressions.forEach(ex -> {
-            sb.append(getOutput(ex.getValue().getKey(), false));
+            sb.append(getOutput(ex.getValue().getKey()));
             sb.append(' ');
             sb.append(ex.getKey());
             sb.append(' ');
@@ -150,8 +149,8 @@ public class Calculator {
         }
     }
 
-    private String getOutput(final BigDecimal n, final boolean isCommaRequired) {
-        final String[] numLens = n.toPlainString().split("\\.");
+    private String getOutput(final BigDecimal n) {
+        final String[] numLens = n.toPlainString().replace("-", "").split("\\.");
         final int fractionLength = numLens.length == 2 ? numLens[1].length() : 0;
         final int intLength = numLens[0].length();
         final int totalLength = fractionLength + intLength;
